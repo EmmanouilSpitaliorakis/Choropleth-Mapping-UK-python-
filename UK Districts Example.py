@@ -3,7 +3,9 @@ import pandas as pd
 import plotly.express as px
 from urllib.request import urlopen
 
-with urlopen('https://opendata.arcgis.com/datasets/3b374840ce1b4160b85b8146b610cd0c_0.geojson') as response:
+link_to_map = 'https://opendata.arcgis.com/datasets/3b374840ce1b4160b85b8146b610cd0c_0.geojson'
+
+with urlopen(link_to_map) as response:
     uk_districts = json.load(response)
     
 pop_data=pd.read_csv("ons2data.csv")
