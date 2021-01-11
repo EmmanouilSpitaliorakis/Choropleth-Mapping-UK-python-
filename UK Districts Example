@@ -1,9 +1,8 @@
 import json
 import pandas as pd
 import plotly.express as px
-
 from urllib.request import urlopen
-import json
+
 with urlopen('https://opendata.arcgis.com/datasets/3b374840ce1b4160b85b8146b610cd0c_0.geojson') as response:
     uk_districts = json.load(response)
     
