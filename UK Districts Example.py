@@ -10,13 +10,15 @@ with urlopen(link_to_map) as response:
     
 pop_data=pd.read_csv("ons2data.csv")
 
-#Have a look at the data and the GeoJSON file to find a mapping identifier you can use
+#Printing the dataframe and the the GeoJson to find relationships.
+print(pop_data.head())
+print(uk_districts['features'][0]['properties'])
 
-pop_data.head()
-uk_districts['features'][0]['properties']
+#After checking the data we found a relationship for the City names, 
+#the dataframe column name for the cities is: "City"
+#and for the GeoJson it is: "LAD20NM"
 
-#Here we can use the column "name" in the population data and 
-#"LAD20NM" in the feature properties
 
+#
 fig = px.choropleth_mapbox(pop_data, locations="name", featureidkey="properties.LAD20NM", geojson=uk_districts, color="Median Age", hover_name="name", mapbox_style="carto-positron", zoom=4, center = {"lat": 55, "lon": 0})
 fig.show()
