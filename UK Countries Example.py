@@ -5,7 +5,9 @@ import pandas as pd
 from urllib.request import urlopen
 import json
 
-with urlopen('https://opendata.arcgis.com/datasets/ee3bb6a5a73540beab9837154fd9aa9a_0.geojson') as response:
+link_to_map = 'https://opendata.arcgis.com/datasets/ee3bb6a5a73540beab9837154fd9aa9a_0.geojson'
+
+with urlopen(link_to_map) as response:
     uk_countries=json.load(response)
     
 
