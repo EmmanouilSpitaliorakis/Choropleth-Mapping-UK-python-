@@ -19,6 +19,8 @@ print(uk_districts['features'][0]['properties'])
 #and for the GeoJson it is: "LAD20NM"
 
 
-#
-fig = px.choropleth_mapbox(pop_data, locations="name", featureidkey="properties.LAD20NM", geojson=uk_districts, color="Median Age", hover_name="name", mapbox_style="carto-positron", zoom=4, center = {"lat": 55, "lon": 0})
+#Creating the map figure
+fig = px.choropleth_mapbox(pop_data, locations="name", featureidkey="properties.LAD20NM",
+                           geojson=uk_districts, color="Median Age", hover_name="name", mapbox_style="carto-positron",
+                           zoom=4, center = {"lat": 55, "lon": 0})
 fig.show()
